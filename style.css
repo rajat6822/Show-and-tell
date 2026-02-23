@@ -18,10 +18,13 @@ body{
     background-color: #fff;
     border-radius: 50%;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: -10;
+    left: -10%;
     pointer-events: none;
-    /* transition: all ease 0.1s ; */
+    transition: all linear 0.1s;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px white;
+    z-index: 999;
 }
 
 /*      Navbar      */
@@ -34,6 +37,13 @@ nav{
     padding: 20px 50px;
     position: fixed;
     top: 0%;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(
+        to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4) ,
+      rgba(0, 0, 0, 0.3) 
+  );
 }
 nav h1{
     font-size: 23px;
@@ -80,14 +90,14 @@ nav ul li button:hover{
 
 /*      Hero section        */
 .heroPage{
-    height: 100%;
+    height: 120vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .heroPage video{
-    height: 100%;
+    height: 120vh;
     width: 100%;
     position: absolute;
     top: 0;
@@ -107,7 +117,7 @@ nav ul li button:hover{
     gap: 2rem;
 }
 #hero #blink{
-    height: 50px;
+    min-height: 45px;
     width: 280px;
     background-color: black;
     display: flex;
@@ -207,7 +217,7 @@ nav ul li button:hover{
 
 /*      Images section      */
 .images{
-    height: 190vh;
+    height: 230vh;
     width: 100%;
     background-color: black;
     display: flex;
@@ -217,7 +227,7 @@ nav ul li button:hover{
     gap: 10px;
 }
 .images #left{
-    height: 150vh;  
+    height: 180vh;  
     width: 33.33%;
     display: flex;
     flex-direction: column;
@@ -225,10 +235,15 @@ nav ul li button:hover{
     justify-content: center;
     gap: 10px;
 }
+.image-left:hover img{
+    filter: grayscale(0%);
+    scale: 1.1;
+}
 .images #left .image-left{
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 .images #left .image-left img{
     height: 100%;
@@ -236,17 +251,22 @@ nav ul li button:hover{
     object-fit: cover;
 }
 .images #mid{
-    height: 180vh;
+    height: 210vh;
     width: 33.33%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
+.image-mid:hover img{
+    scale: 1.1;
+    filter: grayscale(0%);
+}
 .images #mid .image-mid{
-    height: 60vh;
+    height: 70vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 .images #mid .image-mid img{
     height: 100%;
@@ -254,7 +274,7 @@ nav ul li button:hover{
     object-fit: cover;
 }
 .images #right{
-    height: 150vh;
+    height: 180vh;
     width: 33.33%;
     display: flex;
     flex-direction: column;
@@ -262,17 +282,58 @@ nav ul li button:hover{
     justify-content: center;
     gap: 10px;
 }
+.image-right:hover img{
+    scale: 1.1;
+    filter: grayscale(0%);
+}
 .images #right .image-right{
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 .images #right .image-right img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-.images img:hover{
-    scale: 1.20;
+.images img{
     transition: all 0.3s ease;
+    filter: grayscale(100%);
 }
+.images .btn{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.08)
+    );
+    color: white;
+    padding: 12px 8vw;
+    border-radius: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+    border: 0.5px solid white;
+    z-index: 10;
+}
+.images .btn i{
+    font-size: 27px;
+    transition: all ease 0.2s;
+}
+.images .btn .upper{
+    transform: translate(0%,0%);
+    position: absolute;
+    left: 75%;
+}
+.images .btn .downer{
+    transform: translate(-120%,120%);
+    position: absolute;
+    left: 75%;
+}
+
